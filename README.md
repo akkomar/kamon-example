@@ -15,4 +15,10 @@ Graphite can be accessed on port 81, in order to get container's ip, run:
 
     docker inspect kamon-grafana-dashboard | grep IPAddress
     
+
+----------------------------------------------------
+
+Build docker image:
+
+    sudo docker build -t akomar/kamon-grafana-example .
     
