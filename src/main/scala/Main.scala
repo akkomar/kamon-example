@@ -32,12 +32,17 @@ object Main extends App with LazyLogging {
         }
 
         //task not included in segment:
-        Thread.sleep(r.nextInt(300))
+//        Thread.sleep(r.nextInt(300))
 
         Tracer.currentContext.withNewSegment("second-segment", "segment-category", "segment-library") {
           Thread.sleep(r.nextInt(300))
           logger.info("Second step")
         }
+
+//        Tracer.currentContext.withNewSegment("first-segment", "segment-category", "segment-library") {
+//          Thread.sleep(r.nextInt(100))
+//          logger.info("First step again")
+//        }
 
         Tracer.currentContext.withNewSegment("third-segment", "segment-category", "segment-library") {
           Thread.sleep(r.nextInt(50))
