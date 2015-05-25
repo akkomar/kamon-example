@@ -1,4 +1,14 @@
-https://github.com/kamon-io/docker-grafana-graphite
+Start docker container with Grafana/Graphite/Statsd:
+    
+    https://github.com/kamon-io/docker-grafana-graphite
 
-http://kamon.io/introduction/get-started/
-metrics/tracing
+
+
+
+
+
+Graphite can be accessed on port 81, in order to get container's ip, run:
+
+    docker inspect kamon-grafana-dashboard | grep IPAddress
+    
+    
