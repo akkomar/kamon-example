@@ -1,6 +1,6 @@
 import java.util.concurrent._
 
-import akka.actor.ActorSystem
+import akka.actor.{Props, ActorSystem}
 import com.typesafe.scalalogging.LazyLogging
 import kamon.Kamon
 import kamon.trace.Tracer
@@ -21,6 +21,10 @@ object Main extends App with LazyLogging {
 
 
   val actorSystem = ActorSystem()
+
+  val tracePrinter = actorSystem.actorOf(Props[TracePrinter])
+  Kamon.tracer.subscribe(tracePrinter)
+
   val scheduler = actorSystem.scheduler
   val bigTask = new Runnable {
     def run() {
